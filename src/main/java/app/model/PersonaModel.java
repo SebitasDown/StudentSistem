@@ -63,6 +63,28 @@ public class PersonaModel implements LoginPersona{
 // se usa para logiarnos en el sistema
     @Override
     public Persona login(String correo, String pass) {
-        return null;
+        Persona persona = null;
+
+        String sql = "SELECT * FROM Persona WHERE correo = ? AND pass = ?";
+        try(Connection connexion = ConfigDB.openConnection();
+        PreparedStatement prepare = connexion.prepareStatement(sql);){
+
+            prepare.setString(1, correo);
+            prepare.setString(2, pass);
+
+            try( ResultSet resultado = prepare.executeQuery()){
+                if(resultado.next()){
+                    persona = new Persona();
+                    persona.setId_persona(resultado.getInt("id_persona"));
+                    persona.setNombre(resultado.getString("nombre"));
+                    persona.setCorreo(resultado.getString("correo"));
+                    persona.setPass(resultado.getString("pass"));
+                    persona.setEdad(resultado.getInt("edad"));
+                }
+            }
+        }catch (SQLException error){
+            System.out.println("Error" + error.getMessage());
+        }
+        return persona;
     }
 }

@@ -23,7 +23,7 @@ public class LoginRegister {
             if (option == null) break;
 
             switch (option){
-                case "1"-> JOptionPane.showMessageDialog(null, "Prueba");
+                case "1"-> PersonaController.login();
                 case "2" -> PersonaController.crear();
                 case "3"-> JOptionPane.showMessageDialog(null, "Saliendo del sistema");
                 default -> JOptionPane.showMessageDialog(null, "Opcion no valida");

@@ -56,4 +56,40 @@ public class ValidacionesEntradas {
             return entrada;
         }
     }
+
+    public static String LeerContraseña(String mensaje){
+        while(true){
+            String pass = JOptionPane.showInputDialog(null, mensaje);
+            if (pass == null){
+                JOptionPane.showMessageDialog(null, "Se cerro");
+                return null;
+            }
+            pass = pass.trim();
+            if(pass.length()< 6){
+                JOptionPane.showMessageDialog(null, "La contraseña debe tener 6 caracteres");
+                continue;
+            }
+            return pass;
+        }
+    }
+    public static int LeerEdad(String mensaje){
+      while(true){
+          String edad = JOptionPane.showInputDialog(null, mensaje);
+          if (edad == null){
+              JOptionPane.showMessageDialog(null, "Se cancelo");
+              return -1; // Esto indica cancelación
+          }
+          try{
+              int numero = Integer.parseInt(edad);
+              if(numero <= 0){
+                  JOptionPane.showMessageDialog(null, "Ingresa un numero valido");
+                  continue;
+              }
+              return numero;
+          }catch (NumberFormatException error){
+              JOptionPane.showMessageDialog(null, "El caracter debe se un numero");
+          }
+
+      }
+    }
 }
