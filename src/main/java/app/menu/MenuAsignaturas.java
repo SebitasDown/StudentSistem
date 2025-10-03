@@ -1,9 +1,11 @@
 package app.menu;
 
+import app.controller.NotasAsignaturaController;
+
 import javax.swing.*;
 
 public class MenuAsignaturas {
-    public static void AsMenu(){
+    public static void AsMenu(int idPersona){
         String option = "";
 
         String  menu = """
@@ -26,6 +28,7 @@ public class MenuAsignaturas {
 
             switch (option){
                 case "1":
+                    NotasAsignaturaController.InscribirAsignatura(idPersona);
                     break;
                 case "2":
                     break;

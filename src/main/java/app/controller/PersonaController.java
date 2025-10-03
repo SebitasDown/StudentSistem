@@ -38,7 +38,7 @@ public class PersonaController {
             if (persona != null){
                 JOptionPane.showMessageDialog(null, "Bienvenido usuario " + persona.getNombre());
                 // aqui va el otro menu que entraria
-                MenuPrincipal.MainMenu();
+                MenuPrincipal.MainMenu(persona.getId_persona());
             }else{
                 JOptionPane.showMessageDialog(null, "Correo o contraseña incorrectos");
 

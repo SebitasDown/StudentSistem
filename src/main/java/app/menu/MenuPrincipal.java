@@ -3,7 +3,7 @@ package app.menu;
 import javax.swing.*;
 
 public class MenuPrincipal {
-    public static void MainMenu(){
+    public static void MainMenu(int idPersona){
         String Option = "";
         String menu = """
                 =====================================
@@ -23,7 +23,7 @@ public class MenuPrincipal {
             switch (Option){
                 case "1":
                     // menu de Asignaturas
-                    MenuAsignaturas.AsMenu();
+                    MenuAsignaturas.AsMenu(idPersona);
                 case "2":
                     // Promedio
                 case "3":
